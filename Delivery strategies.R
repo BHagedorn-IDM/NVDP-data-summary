@@ -1,6 +1,5 @@
 #Delivery strategies
 
-setwd("C:/Users/brittanyha/OneDrive - Bill & Melinda Gates Foundation/Brittany Hagedorn/COVID tools/Modeling needs Phase 3/NVDP set 1")
 DP <- data.frame(read_xlsx("NVDP Dataset _ Master.xlsx",sheet='Delivery plans (working version'))
 
 DP <- subset(DP,!is.na(Country))

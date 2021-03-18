@@ -1,6 +1,5 @@
 #Summary Statistics
 
-setwd("C:/Users/brittanyha/OneDrive - Bill & Melinda Gates Foundation/Brittany Hagedorn/COVID tools/Modeling needs Phase 3/NVDP set 1")
 AD <- data.frame(read_xlsx("NVDP Dataset _ Master.xlsx",sheet='General info (working version)'))
 
 #Number of pages

@@ -1,6 +1,5 @@
 #Human resources
 
-setwd("C:/Users/brittanyha/OneDrive - Bill & Melinda Gates Foundation/Brittany Hagedorn/COVID tools/Modeling needs Phase 3/NVDP set 1")
 GN <- data.frame(read_xlsx("NVDP Dataset _ Master.xlsx",sheet='General info (working version)'))
 
 GN$SupportRatio <- GN$Vx_Team_Size/GN$Vaccinators_Per_Team

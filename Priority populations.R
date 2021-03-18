@@ -1,14 +1,5 @@
-library(ggplot2)
-library(scales)
-library(plyr)
-library(dplyr)
-library(readxl)
-library(tidyverse)
-library(RColorBrewer)
-library(reshape2)
-#library(ggrepl)
+#summaries of priority populations
 
-setwd("C:/Users/brittanyha/OneDrive - Bill & Melinda Gates Foundation/Brittany Hagedorn/COVID tools/Modeling needs Phase 3/NVDP set 1")
 ds <- data.frame(read_xlsx("NVDP Dataset _ Master.xlsx",sheet='Delivery plans (working version'))
 ds$Target_pop_dxn <- str_to_lower(ds$Target_pop_dxn, locale="en")
 #ds$Target_pop_dxn <- paste(ds$Target_pop_dxn,ds$OlderPop)
