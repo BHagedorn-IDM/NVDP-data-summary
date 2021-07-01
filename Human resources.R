@@ -15,8 +15,15 @@ GN$SupportRatio <- GN$Vx_Team_Size/GN$Vaccinators_Per_Team
 #   theme(axis.text.x=element_text(angle=45,hjust=1))
 
 p4 <- ggplot(GN,aes(x=log10(Total_Target_Pop),y=Vaccinator_num_need)) +geom_point() + theme_bw() + 
-  xlab("Population (1000s)") + ylab("# Vaccinators Needed") + 
-  geom_text(aes(label=Code,hjust=-0.3,vjust=.3),alpha=.5,size=2.5) +
+  xlab("Target Population (1000s)") + ylab("# Vaccinators Needed") + 
+  geom_text(aes(label=Code,hjust=-0.3,vjust=.3),alpha=.7,size=2.5) +
+  scale_x_continuous(breaks=c(3,4,5,6,7,8),
+                     labels=c(1,10,100,1000,10000,100000))
+
+p4b <- ggplot(GN,aes(x=log10(Total_Target_Pop),y=Vaccinator_num_need,color=WHO_Region)) +
+  geom_point() + theme_bw() + 
+  xlab("Target Population (1000s)") + ylab("# Vaccinators Needed") + 
+  geom_text(aes(label=Code,hjust=-0.3,vjust=.3),alpha=.7,size=2.5) +
   scale_x_continuous(breaks=c(3,4,5,6,7,8),
                      labels=c(1,10,100,1000,10000,100000))
   
@@ -38,7 +45,7 @@ GN$Vx_PerTeam_PerDay <- as.numeric(GN$Vx_PerTeam_PerDay)
 p2 <- ggplot(subset(GN,!is.na(Vx_PerTeam_PerDay)),
              aes(x=SupportRatio,y=Vx_PerTeam_PerDay/Vaccinators_Per_Team,color=WHO_Region)) + 
   geom_point() + theme_bw() + 
-  geom_text(aes(label=Code,hjust=-0.3,vjust=.3),alpha=.5,size=2.5) +
+  geom_text(aes(label=Country,hjust=-0.2,vjust=.3),alpha=.7,size=2.5) +
   xlab("Support Staff per Vaccinator") + ylab("Vaccinations per Vaccinator per Day")
 
 p3 <- ggplot(subset(GN,!is.na(Vx_PerTeam_PerDay)),aes(x=Vx_Team_Size,y=Vx_PerTeam_PerDay,color=WHO_Region)) + 
@@ -80,6 +87,7 @@ plot(p1)
 plot(p2)
 plot(p3)
 plot(p4)
+plot(p4b)
 plot(p5)
 plot(p6)
 dev.off()  
